@@ -126,6 +126,8 @@ body {
 	padding: 30px 25px;
 	border-radius: 35px;
 	transform-origin: top;
+	max-width: 370px;
+	width: 150%;
 }
 
 .form-login {
@@ -179,32 +181,32 @@ body {
 @keyframes showSignup {
 	0% {
 		background: #f1d7d7;
-		transform: translate(-40%, 10px) scaleY(.8);
+		transform: translate(-40%, 10px);
 	}
 
 	50% {
-		transform: translate(0, 0) scaleY(.8);
+		transform: translate(0, 0);
 	}
 
 	100% {
 		background-color: #000000;
-		transform: translate(-35%, -20px) scaleY(1);
+		transform: translate(-35%, -20px);
 	}
 }
 
 @keyframes hideSignup {
 	0% {
 		background: #292929;
-		transform: translate(-35%, -20px) scaleY(1);
+		transform: translate(-35%, -20px);
 	}
 
 	50% {
-		transform: translate(0, 0) scaleY(.8);
+		transform: translate(0, 0);
 	}
 
 	100% {
 		background: #292929;
-		transform: translate(-40%, 10px) scaleY(.8);
+		transform: translate(-40%, 10px);
 	}
 }
 
@@ -298,23 +300,63 @@ body {
 	font-size: 15px;
 	color: #ffffff;
 	gap: 200px;
-  }
-  
-  .footer span {
-	cursor: pointer;
-  
-  }
+}
 
-  .cu-logo{
+.footer span {
+	cursor: pointer;
+}
+
+.cu-logo {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 25px;
-  }
+}
 
-  .qrText{
-    align-self: center;
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+.qrText {
+	align-self: center;
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+}
 
-  }
+.password-wrapper {
+	position: relative;
+}
+
+.toggle-password {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: #000000;
+}
+
+.qr-section {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.forgot-password-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.forgot-password-form {
+	background-color: #000000;
+	padding: 30px 25px;
+	border-radius: 35px;
+	max-width: 300px;
+	width: 100%;
+}
+
+.back-link {
+	color: #ffffff;
+	font-size: 15px;
+	cursor: pointer;
+	text-align: center;
+	margin-top: 20px;
+}

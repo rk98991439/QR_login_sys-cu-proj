@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">  <meta name="description" content="Free Web tutorials">
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
   <meta name="keywords" content="HTML, CSS, JavaScript">
   <meta name="author" content="John Doe">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
   <section class="forms-section">
     <h1 class="section-title">CU Bus Pass System</h1>
@@ -19,70 +17,73 @@
           Login
           <span class="underline"></span>
         </button>
-        <form class="form form-login" action="index.php" method="post">
+        <form id="login-form" class="form form-login" action="index.php" method="post">
           <fieldset>
-
             <img class="cu-logo" src="./cu-logo-white.webp" alt="cu-logo">
-
             <div class="input-block">
               <label for="login-email">Email Address</label>
               <input id="login-email" placeholder="UID@cuchd.in" type="email" required>
             </div>
             <div class="input-block">
               <label for="login-password">Password</label>
-              <input id="login-password" placeholder="Password" type="password" name="password" required>
+              <div class="password-wrapper">
+                <input id="login-password" placeholder="Password" type="password" name="password" required>
+                <span class="toggle-password" onclick="togglePassword('login-password')">👁️</span>
+              </div>
             </div>
-            <div class="footer"><span>Signup</span><span>Forgot Password?</span></div>
+            <div class="footer">
+              <span class="signup-link" onclick="switchToSignup()">Signup</span>
+              <span class="forgot-password-link" onclick="window.location.href='forgot-password.html'">Forgot Password?</span>
+            </div>
             <h2 class="qrText">Login With QR Code 🤳🏻</h2>
-            <form>
-              <input type="file" accept="image/*" onchange="readQRCode(this.files)">
-              <div class="qrText" id="result"><h1></h1></div>
-
+            <div class="qr-section">
+              <input type="file" accept="image/*" id="qr-input">
+              <div class="qrText" id="qr-result"><span></span></div>
+              <div id="qr-loading" class="qrText" style="display: none;">Loading...</div>
+            </div>
           </fieldset>
-          <button type="submit" class="btn-login">Login</button>
+          <button type="submit" class="btn-login" id="login-submit">Login</button>
         </form>
-
       </div>
-
       <div class="form-wrapper">
         <button type="button" class="switcher switcher-signup">
-
           Sign Up
           <span class="underline"></span>
         </button>
-        <form class="form form-signup" action="index.php" method="post">
+        <form id="signup-form" class="form form-signup" action="index.php" method="post">
           <fieldset>
-
             <img class="cu-logo" src="./cu-logo-white.webp" alt="cu-logo-white">
-
             <div class="input-block">
               <label for="signup-email">Email Address</label>
-              <input id="signup-email" placeholder="UID@cuchd.in" type="email" required Id="qrcodeid"
-                onchange="generateQRCode(this.value)">
+              <input id="signup-email" placeholder="UID@cuchd.in" type="email" required>
             </div>
             <div class="input-block">
               <label for="signup-password">Password</label>
-              <input id="signup-password" placeholder="Password" type="password" required Id="qrcodepass"
-                onchange="generateQRCode(this.p)">
+              <div class="password-wrapper">
+                <input id="signup-password" placeholder="Password" type="password" required>
+                <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+              </div>
+              <div id="password-strength" class="qrText"></div>
             </div>
             <div class="input-block">
-              <label for="signup-password-confirm">Confirm password</label>
-              <input id="signup-password-confirm" placeholder="Same Password" type="password" required
-                onclick="generateQRCode()">
+              <label for="signup-password-confirm">Confirm Password</label>
+              <div class="password-wrapper">
+                <input id="signup-password-confirm" placeholder="Same Password" type="password" required>
+                <span class="toggle-password" onclick="togglePassword('signup-password-confirm')">👁️</span>
+              </div>
             </div>
-
-            <img class="result" id="qrcode" />
-            <a href="#" id="download-link" download="qrcode.png">⬇️</a>
+            <div class="qr-section">
+              <img class="result" id="qrcode" alt="QR Code" />
+              <div id="qr-error" class="qrText" style="display: none;">Passwords must match to generate QR code</div>
+              <div id="qr-loading-signup" class="qrText" style="display: none;">Generating QR...</div>
+              <a href="#" id="download-link" download="qrcode.png">⬇️</a>
+            </div>
           </fieldset>
-
-          <button type="submit" class="btn-signup">Continue</button>
+          <button type="submit" class="btn-signup" id="signup-submit">Continue</button>
         </form>
       </div>
     </div>
   </section>
-
   <script src="script.js"></script>
-
 </body>
-
 </html>
